@@ -1,0 +1,45 @@
+.title1 {
+    font-weight: 700;
+    font-size: 1.125rem;
+    font-family: var(--font-global);
+    color: var(--color-grey-0);
+}
+
+.title2 {
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.headline {
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--color-grey-1);
+}
+
+.headline_bold {
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+.paragraph {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-grey-0);
+}
+
+.paragraph.sm {
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--color-grey-0);
+}
+
+.errorMessage {
+    font-size: 0.75rem;
+    color: var(--navigative);
+}
+
+.removeLink {
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-decoration: none;
+}

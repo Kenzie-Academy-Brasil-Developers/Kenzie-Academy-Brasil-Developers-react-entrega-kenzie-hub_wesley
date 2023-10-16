@@ -1,0 +1,46 @@
+button {
+    height: 48px;
+    border: none;
+    gap: 0.625rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    font-style: normal;
+    align-items: center;
+    display: inline-flex;
+    border-radius: 0.25rem;
+    padding: 0rem 1.375rem;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+    background-color: var(--color-primary);
+
+    &:hover {
+        height: 40px;
+        font-size: 12px;
+        background-color: var(--color-primary-focus);
+    }
+}
+
+button.btn_logout {
+    background-color: var(--color-grey-3);
+
+    &:hover {
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+button.button_negative {
+    background-color: var(--color-primary-negative);
+}
+
+
+button.disabled {
+    background-color: var(--color-grey-1);
+
+    &:hover {
+        height: 40px;
+        font-size: 12px;
+        background-color: var(--color-grey-2);
+    }
+}
