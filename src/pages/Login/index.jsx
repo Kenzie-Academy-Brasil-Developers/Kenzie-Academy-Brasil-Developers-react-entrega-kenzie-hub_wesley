@@ -1,20 +1,10 @@
-import Input from "../../components/Input"
 import styles from './styles.module.scss'
 import logo from '../../assets/Logo.png'
-
-import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
-import { zodResolver } from "@hookform/resolvers/zod"
-import api from "../../services/api"
-import loginSchemaForm from "../../components/form/LoginForm/loginShemaForm"
+import { useNavigate } from "react-router-dom"
 import LoginForm from "../../components/form/LoginForm"
 
 const LoginPage = ({ setUser, setModule }) => {
-
-
-
-
+    const navigation = useNavigate()
     return (
         <main className={`container`}>
             <section className={styles.container_section}>
@@ -24,7 +14,7 @@ const LoginPage = ({ setUser, setModule }) => {
                     <LoginForm setUser={setUser} setModule={setModule} />
                     <div className={styles.filed_register}>
                         <span className="headline">Ainda não possui uma conta?</span>
-                        <button className="disabled"><Link className="removeLink" to="/register">Cadastre-se</Link></button>
+                        <button className="disabled" onClick={() => navigation('/register')}>Cadastre-se</button>
                     </div>
                 </div>
             </section>

@@ -41,7 +41,7 @@ const LoginForm = ({ setUser, setModule }) => {
         userLogin(loginData);
     }
     return (
-        <form onSubmit={handleSubmit(submit)}>
+        <form className='form_login' onSubmit={handleSubmit(submit)}>
             <Input label="Email" type="email" placeholder='Digite seu e-mail' dataForm={register('email')} error={errors.email} />
 
             <Input label="Senha" type="password" placeholder='Digite sua senha' dataForm={register('password')} error={errors.password} />
