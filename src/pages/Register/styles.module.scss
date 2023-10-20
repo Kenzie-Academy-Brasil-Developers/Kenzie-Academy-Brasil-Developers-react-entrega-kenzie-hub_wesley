@@ -7,7 +7,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
+    margin: 22px 0;
 
     .top_form {
         width: 100%;
@@ -25,6 +25,15 @@
         button {
             border-radius: 4px;
             background: var(--color-grey-3, #212529);
+
+            a {
+                font-size: 16px;
+                font-weight: 500;
+                font-style: normal;
+                line-height: 26.394px;
+                text-decoration: none;
+                color: var(--color-grey-0, #F8F9FA);
+            }
         }
     }
 
@@ -45,20 +54,6 @@
             align-items: center;
         }
 
-    }
-
-
-    & form {
-        gap: 1.375rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-
-        .selected_input {
-            display: flex;
-            flex-direction: column;
-            gap: 1.375rem;
-        }
     }
 
     & .filed_register {

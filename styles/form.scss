@@ -1,21 +1,22 @@
-.form_login {
-    gap: 22px;
-    height: 300px;
-    width: 100%;
+form {
     display: flex;
     flex-direction: column;
 }
 
+.form_login,
 .form_register {
     gap: 22px;
-    height: 800px;
     width: 100%;
     display: flex;
     flex-direction: column;
-}
 
-.select_container {
-    display: flex;
-    gap: 1.375rem;
-    flex-direction: column;
+    & div {
+        gap: 1.3956rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sp_button {
+        height: 48px;
+    }
 }

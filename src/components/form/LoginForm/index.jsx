@@ -42,11 +42,15 @@ const LoginForm = ({ setUser, setModule }) => {
     }
     return (
         <form className='form_login' onSubmit={handleSubmit(submit)}>
-            <Input label="Email" type="email" placeholder='Digite seu e-mail' dataForm={register('email')} error={errors.email} />
 
-            <Input label="Senha" type="password" placeholder='Digite sua senha' dataForm={register('password')} error={errors.password} />
+            <div>
+                <Input label="Email" type="email" placeholder='Digite seu e-mail' dataForm={register('email')} error={errors.email} />
 
-            <button type={"submit"}>Entrar</button>
+                <Input label="Senha" type="password" placeholder='Digite sua senha' dataForm={register('password')} error={errors.password} />
+            </div>
+            <div className='sp_button'>
+                <button type={"submit"}>Entrar</button>
+            </div>
         </form>
     )
 }
