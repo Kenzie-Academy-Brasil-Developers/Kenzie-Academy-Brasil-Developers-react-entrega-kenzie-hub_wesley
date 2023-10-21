@@ -1,13 +1,15 @@
+import { useContext } from 'react'
 import logo from '../../assets/Logo.png'
 import styles from './styles.module.scss'
-import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../providers/UserContext'
+
 const Header = () => {
-    const navigate = useNavigate()
+    const { userLogout } = useContext(UserContext)
 
     const handleLogout = () => {
-        localStorage.removeItem("@kenzie-gub")
-        navigate("/")
+        userLogout()
     }
+
     return (
         <header className={styles.container_header}>
             <div>

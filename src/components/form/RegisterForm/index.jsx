@@ -1,35 +1,21 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from "@hookform/resolvers/zod"
-import api from '../../../services/api'
+import { useContext, useState } from "react"
 import Input from '../../Input'
+
 import { registerSchemaForm } from './registerSchemaForm'
-import { toast } from 'react-toastify';
+import { UserContext } from '../../../providers/UserContext'
 
-const RegisterForm = ({ setUser, setModule }) => {
-
+const RegisterForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: zodResolver(registerSchemaForm)
     });
 
-    const createAccount = async (dataForm) => {
-        try {
-            await api.post("/users", dataForm)
-
-            toast.success('Cadastro Realizado com sucesso', {
-                position: toast.POSITION.TOP_RIGHT
-            });
-        } catch (error) {
-            if (error.response.data.message === "Email already exists") {
-                toast.success('Email já cadastrado. Por favor Utilize outro!', {
-                    position: toast.POSITION.TOP_RIGHT
-                });
-            }
-            console.error(error);
-        }
-    }
+    const [loading, setLoading] = useState(false)
+    const { createAccount } = useContext(UserContext)
 
     const submit = (dataRegister) => {
-        createAccount(dataRegister);
+        createAccount(dataRegister, setLoading);
         console.log(dataRegister);
 
     }

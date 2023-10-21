@@ -1,44 +1,22 @@
+import { useContext, useState } from "react"
 import { useForm } from 'react-hook-form'
-import { useNavigate } from "react-router-dom"
-import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
-import api from '../../../services/api'
-import loginSchemaForm from './loginShemaForm'
+import { UserContext } from '../../../providers/UserContext'
+
 import Input from '../../Input'
+import loginSchemaForm from './loginShemaForm'
 
-const LoginForm = ({ setUser, setModule }) => {
+const LoginForm = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: zodResolver(loginSchemaForm)
     })
 
+    const { userLogin } = useContext(UserContext)
     const [loading, setLoading] = useState(false)
 
-    const navigate = useNavigate();
-
-
-    const userLogin = async (dataLogin) => {
-        try {
-            console.log(await api.post("/sessions ", dataLogin));
-            const { data } = await api.post("/sessions ", dataLogin);
-            localStorage.setItem("@kenzie-hub", data.token)
-            console.log(data.user.name);
-            setUser(data.user.name)
-            setModule(data.user.course_module)
-            navigate('/dashboard')
-
-        } catch (error) {
-            console.log(error);
-            if (error.message?.data === "Incorrect password") {
-                alert("Credenciais invalidas")
-            }
-        } finally {
-            setLoading(false)
-        }
-    }
-
     const submit = (loginData) => {
-        userLogin(loginData);
+        userLogin(loginData, setLoading, reset);
     }
     return (
         <form className='form_login' onSubmit={handleSubmit(submit)}>

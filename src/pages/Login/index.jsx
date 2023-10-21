@@ -3,14 +3,14 @@ import logo from '../../assets/Logo.png'
 import { Link } from "react-router-dom"
 import LoginForm from "../../components/form/LoginForm"
 
-const LoginPage = ({ setUser, setModule }) => {
+const LoginPage = () => {
     return (
         <main className={`container`}>
             <section className={styles.container_section}>
                 <img src={logo} alt="logo" />
                 <div className={styles.container_form}>
                     <h1 className="title1">Login</h1>
-                    <LoginForm setUser={setUser} setModule={setModule} />
+                    <LoginForm />
                     <div className={styles.filed_register}>
                         <span className="headline">Ainda não possui uma conta?</span>
                         <button className="disabled"><Link to="/register">Cadastre-se</Link></button>
