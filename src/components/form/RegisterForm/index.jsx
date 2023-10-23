@@ -16,8 +16,6 @@ const RegisterForm = () => {
 
     const submit = (dataRegister) => {
         createAccount(dataRegister, setLoading);
-        console.log(dataRegister);
-
     }
 
     return (

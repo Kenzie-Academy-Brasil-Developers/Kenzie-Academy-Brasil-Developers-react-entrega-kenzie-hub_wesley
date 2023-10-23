@@ -6,6 +6,7 @@ import { UserContext } from '../../providers/UserContext'
 
 const HomePage = () => {
     const { user } = useContext(UserContext)
+    console.log(user.name);
     return (
         <>
             <Header />
@@ -13,7 +14,7 @@ const HomePage = () => {
                 <div className={styles.main_info}>
                     <div className={styles.info_user}>
                         <div >
-                            <h1 className='title1'>{`Olá eu sou ${user.name} `}</h1>
+                            <h1 className='title1'>{`Olá eu sou ${user.name}`}</h1>
                             <h2 className='title1'>{user.course_module}</h2>
                         </div>
                     </div>

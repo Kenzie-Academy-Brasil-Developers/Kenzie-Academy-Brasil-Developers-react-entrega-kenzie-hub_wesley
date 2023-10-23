@@ -7,23 +7,23 @@ import { toast } from 'react-toastify';
 const UserContext = createContext()
 
 const UserProvider = ({ children }) => {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState([])
     const navigate = useNavigate()
+
 
     const userLogout = () => {
         setUser(null)
-        navigate("/")
         localStorage.removeItem("@kenzie-hub")
         toast.warn("Deslogado")
+        navigate("/")
     }
+
     const userLogin = async (dataLogin, setLoading, reset) => {
         try {
             setLoading(true)
             const { data } = await api.post("/sessions ", dataLogin);
             setUser(data.user)
             localStorage.setItem("@kenzie-hub", data.token)
-            localStorage.setItem("@UserId", data.user.id)
-
             reset()
             navigate('/dashboard')
 
@@ -36,6 +36,7 @@ const UserProvider = ({ children }) => {
             setLoading(false)
         }
     }
+
     const createAccount = async (dataForm, setLoading) => {
         try {
             setLoading(true)
@@ -57,25 +58,28 @@ const UserProvider = ({ children }) => {
 
     useEffect(() => {
         const token = localStorage.getItem("@kenzie-hub")
-        const userId = localStorage.getItem("@UserId")
-        console.log(token);
+
         const getUser = async () => {
             try {
-                const { data } = await api.get(`/users/${userId}`, {
+                const { data } = await api.get("/profile", {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${token}`,
                     }
                 })
-                console.log(data);
-                setUser(data)
+                const { name, course_module } = data
+
+                setUser({ name, course_module })
 
             } catch (error) {
                 console.log("Este erro ", error);
             }
         }
         getUser()
-    }, [])
 
+        if (!token) {
+            navigate('/')
+        }
+    }, [])
     return (
         <UserContext.Provider value={{ user, userLogin, userLogout, createAccount }}>
             {children}

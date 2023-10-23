@@ -5,6 +5,7 @@ import './styles/index.scss'
 import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
+
   return (
     <>
       <DefaultTemplate>
