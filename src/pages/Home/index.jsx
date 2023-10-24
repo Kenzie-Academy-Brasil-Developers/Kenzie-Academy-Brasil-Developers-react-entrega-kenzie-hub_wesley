@@ -6,7 +6,6 @@ import { UserContext } from '../../providers/UserContext'
 
 const HomePage = () => {
     const { user } = useContext(UserContext)
-    console.log(user.name);
     return (
         <>
             <Header />

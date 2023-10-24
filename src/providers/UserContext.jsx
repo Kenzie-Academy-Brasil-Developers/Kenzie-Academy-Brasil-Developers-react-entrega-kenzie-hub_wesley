@@ -7,8 +7,10 @@ import { toast } from 'react-toastify';
 const UserContext = createContext()
 
 const UserProvider = ({ children }) => {
-    const [user, setUser] = useState([])
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const pathname = window.location.pathname
 
 
     const userLogout = () => {
@@ -61,27 +63,25 @@ const UserProvider = ({ children }) => {
 
         const getUser = async () => {
             try {
+                setLoading(true)
                 const { data } = await api.get("/profile", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }
                 })
                 const { name, course_module } = data
-
                 setUser({ name, course_module })
-
+                navigate(pathname)
             } catch (error) {
                 console.log("Este erro ", error);
+            } finally {
+                setLoading(false)
             }
         }
         getUser()
-
-        if (!token) {
-            navigate('/')
-        }
     }, [])
     return (
-        <UserContext.Provider value={{ user, userLogin, userLogout, createAccount }}>
+        <UserContext.Provider value={{ loading, user, userLogin, userLogout, createAccount }}>
             {children}
         </UserContext.Provider>
     )

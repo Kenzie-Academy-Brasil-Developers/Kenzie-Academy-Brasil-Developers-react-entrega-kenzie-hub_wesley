@@ -3,6 +3,7 @@ import LoginPage from '../pages/Login/'
 import RegisterPage from '../pages/Register'
 import HomePage from '../pages/Home'
 import ErrorPage from '../pages/ErrorPage'
+import PrivateRoutes from './PrivateRoutes'
 
 
 const RoutesMain = () => {
@@ -11,7 +12,11 @@ const RoutesMain = () => {
         <Routes>
             <Route path='/' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
-            <Route path='/dashboard' element={<HomePage />} />
+
+            <Route element={<PrivateRoutes />}>
+                <Route path='/dashboard' element={<HomePage />} />
+            </Route>
+
             <Route path='*' element={<ErrorPage />} />
         </Routes>
     )
