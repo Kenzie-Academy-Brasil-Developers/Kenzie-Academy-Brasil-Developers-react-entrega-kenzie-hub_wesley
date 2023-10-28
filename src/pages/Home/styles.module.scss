@@ -3,19 +3,18 @@
     height: 100%;
     display: flex;
     gap: 2.8125rem;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
 
     .info_user {
-        width: 100%;
+        width: 70%;
         height: 118px;
         display: flex;
         align-items: center;
-        justify-content: center;
         border-bottom: 0.0313rem solid var(--color-grey-2);
 
         & div {
-            width: 60%;
+            width: 100%;
             height: 118px;
             display: flex;
             align-items: center;
@@ -24,7 +23,7 @@
     }
 
     .section_info {
-        width: 60%;
+        width: 70%;
         display: flex;
         gap: 1.4375rem;
         flex-direction: column;

@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import styles from './styles.module.scss'
 
 import { UserContext } from '../../providers/UserContext'
+import CreateTechModal from '../../components/form/CreateTechModal/CreateTechModal'
 
 const HomePage = () => {
     const { user } = useContext(UserContext)
@@ -18,8 +19,8 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div className={styles.section_info}>
-                        <p className='paragraph'>Que pena! Estamos em desenvolvimento :(</p>
-                        <span className='paragraph sm'>Nossa aplicação está em desenvolvimento, em breve teremos novidades</span>
+                        {/* <p className='paragraph'>Que pena! Estamos em desenvolvimento :(</p>
+                        <span className='paragraph sm'>Nossa aplicação está em desenvolvimento, em breve teremos novidades</span> */}
                     </div>
                 </div>
             </main>
