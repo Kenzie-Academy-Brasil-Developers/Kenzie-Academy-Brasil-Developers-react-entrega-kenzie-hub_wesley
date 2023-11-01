@@ -7,7 +7,7 @@ const RegisterPage = () => {
 
 
     return (
-        <main className="container">
+        <main className={`container ${styles.container_main}`}>
             <section className={styles.container_section}>
                 <div className={styles.top_form}>
                     <img src={logo} alt="logo" />
