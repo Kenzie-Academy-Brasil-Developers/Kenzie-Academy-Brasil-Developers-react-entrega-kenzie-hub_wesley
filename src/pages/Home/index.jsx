@@ -20,7 +20,7 @@ const HomePage = () => {
                     <div className={styles.info_user}>
                         <div >
                             <h1 className='title1'>{`Olá eu sou ${user.name}`}</h1>
-                            <h2 className='title1'>{user.course_module}</h2>
+                            <p className='paragraphSm'>{user.course_module}</p>
                         </div>
                     </div>
                     <div className={styles.section_info}>

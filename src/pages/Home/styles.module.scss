@@ -18,7 +18,6 @@
 
             & div {
                 width: 100%;
-                height: 118px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -32,7 +31,6 @@
             flex-direction: column;
             align-items: flex-start;
         }
-
     }
 }
 
@@ -41,13 +39,18 @@
         padding: 0 13px;
 
         .info_user {
+
             & div {
-                width: 100%;
-                display: flex;
+                gap: 10px;
                 flex-direction: column;
-                gap: 0.625rem;
-                align-items: flex-start;
-                justify-content: center;
+
+                h1 {
+                    width: 100%;
+                }
+
+                p {
+                    width: 100%;
+                }
             }
         }
 
