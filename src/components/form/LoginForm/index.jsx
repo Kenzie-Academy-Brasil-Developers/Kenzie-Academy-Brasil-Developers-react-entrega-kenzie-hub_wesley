@@ -20,7 +20,6 @@ const LoginForm = () => {
     }
     return (
         <form className='form_login' onSubmit={handleSubmit(submit)}>
-
             <div>
                 <Input label="Email" type="email" placeholder='Digite seu e-mail' dataForm={register('email')} error={errors.email} />
 
@@ -32,5 +31,4 @@ const LoginForm = () => {
         </form>
     )
 }
-
 export default LoginForm

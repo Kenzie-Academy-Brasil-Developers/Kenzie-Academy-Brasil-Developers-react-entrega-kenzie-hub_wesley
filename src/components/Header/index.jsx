@@ -11,7 +11,7 @@ const Header = () => {
     }
 
     return (
-        <header className={styles.container_header}>
+        <header className={` ${styles.container_header}`}>
             <div>
                 <img src={logo} alt="logo" />
                 <button className='btn_logout' onClick={handleLogout}>Sair</button>

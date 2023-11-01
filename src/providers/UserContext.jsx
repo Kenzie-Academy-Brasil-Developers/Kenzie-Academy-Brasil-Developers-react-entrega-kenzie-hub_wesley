@@ -12,6 +12,7 @@ const UserProvider = ({ children }) => {
     const navigate = useNavigate()
     const pathname = window.location.pathname
 
+    //Abre e Fecha modal
 
     const userLogout = () => {
         setUser(null)
@@ -58,6 +59,7 @@ const UserProvider = ({ children }) => {
         }
     }
 
+
     useEffect(() => {
         const token = localStorage.getItem("@kenzie-hub")
 
@@ -69,8 +71,8 @@ const UserProvider = ({ children }) => {
                         Authorization: `Bearer ${token}`,
                     }
                 })
-                const { name, course_module } = data
-                setUser({ name, course_module })
+                const { name, course_module, techs } = data
+                setUser({ name, course_module, techs })
                 navigate(pathname)
             } catch (error) {
                 console.log("Este erro ", error);

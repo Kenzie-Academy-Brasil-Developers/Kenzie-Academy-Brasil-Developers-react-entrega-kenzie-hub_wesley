@@ -6,21 +6,26 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { techSchemaForm } from './techSchemaForm'
 import { TechsContexts } from '../../../providers/TechContext'
 
-function CreateTechModal() {
+function EditTechModal() {
     const [loading, setLoading] = useState(false)
+    const { actionModalEdit, editTech, techsUserEdit } = useContext(TechsContexts)
     const { register, handleSubmit, formState: { errors }, reset } = useForm({
+        defaultValues: {
+            title: techsUserEdit.title,
+            status: techsUserEdit.status
+        },
         resolver: zodResolver(techSchemaForm)
     })
 
-    const { actionModal, createTech } = useContext(TechsContexts)
-
-    const handleCloseModal = () => {
-        actionModal(false)
+    const handleCloseEdit = () => {
+        actionModalEdit(false)
     }
 
     const submit = (dataForm) => {
-        createTech(dataForm)
+        console.log(dataForm);
+        editTech(dataForm, techsUserEdit.id)
     }
+
 
     useEffect(() => {
 
@@ -29,8 +34,8 @@ function CreateTechModal() {
         <div className={`container ${styles.modal_tech}`}>
             <div className={styles.modal_form}>
                 <div className={styles.header_modal}>
-                    <h3>Cadastrar Tecnologia</h3>
-                    <button onClick={handleCloseModal}>X</button>
+                    <h3>Editar Tecnologia</h3>
+                    <button onClick={handleCloseEdit}>X</button>
                 </div>
                 <form onSubmit={handleSubmit(submit)} >
                     <Input label="Nome" type="text" placeholder="Digite o a tecnologia" dataForm={register('title')} error={errors.title} />
@@ -52,4 +57,4 @@ function CreateTechModal() {
     )
 }
 
-export default CreateTechModal
+export default EditTechModal
