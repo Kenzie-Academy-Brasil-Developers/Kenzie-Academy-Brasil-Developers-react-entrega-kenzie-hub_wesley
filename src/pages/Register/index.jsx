@@ -4,8 +4,6 @@ import RegisterForm from '../../components/form/RegisterForm'
 import { Link } from "react-router-dom"
 
 const RegisterPage = () => {
-
-
     return (
         <main className={`container ${styles.container_main}`}>
             <section className={styles.container_section}>
@@ -19,10 +17,8 @@ const RegisterPage = () => {
                         <span className="headline">Rapido e grátis, vamos nessa</span>
                     </div>
                     <RegisterForm />
-
                 </div>
             </section>
-
         </main>
     )
 }
