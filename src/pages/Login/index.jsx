@@ -1,9 +1,13 @@
 import styles from './styles.module.scss'
 import logo from '../../assets/Logo.png'
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import LoginForm from "../../components/form/LoginForm"
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+    const handleRegister = () => {
+        navigate("/register")
+    }
     return (
         <main className={`container`}>
             <section className={styles.container_section}>
@@ -13,7 +17,7 @@ const LoginPage = () => {
                     <LoginForm />
                     <div className={styles.filed_register}>
                         <span className="headline">Ainda não possui uma conta?</span>
-                        <button className="disabled"><Link to="/register">Cadastre-se</Link></button>
+                        <button className="disabled" onClick={handleRegister}>Cadastre-se</button>
                     </div>
                 </div>
             </section>

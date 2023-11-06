@@ -1,15 +1,21 @@
 import styles from './styles.module.scss'
 import logo from '../../assets/Logo.png'
 import RegisterForm from '../../components/form/RegisterForm'
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 
 const RegisterPage = () => {
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        navigate("/")
+    }
     return (
         <main className={`container ${styles.container_main}`}>
             <section className={styles.container_section}>
                 <div className={styles.top_form}>
                     <img src={logo} alt="logo" />
-                    <button type="submit" ><Link to="/">Voltar</Link></button>
+                    <button type="submit" onClick={handleLogin}>Voltar</button>
                 </div>
                 <div className={styles.container__form}>
                     <div>
